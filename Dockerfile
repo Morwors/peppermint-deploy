@@ -43,7 +43,7 @@ RUN find /apps/client \( -name "*.html" -o -name "*.js" \) -exec \
 
 # --- Inject TicketSeat theme CSS overrides ---
 COPY ticketseat-theme.css /tmp/ticketseat-theme.css
-RUN CSSFILE=$(find /apps/client -name "*.css" -path "*/_next/static/css/*" | head -1) && \
+RUN CSSFILE=$(find /apps/client -name "*.css" -path "*/.next/static/css/*" | head -1) && \
     if [ -n "$CSSFILE" ]; then \
       cat /tmp/ticketseat-theme.css >> "$CSSFILE" && \
       echo "CSS injected into $CSSFILE"; \
